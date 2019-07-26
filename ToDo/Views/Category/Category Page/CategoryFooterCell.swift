@@ -16,7 +16,7 @@ final class CategoryFooterCell: UITableViewHeaderFooterView {
     //MARK:- Initialization
     
     override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: reuseIdentifier)
+        super.init(reuseIdentifier: reuseIdentifier)       
         setupLayout()
         setupProperties()
     }
