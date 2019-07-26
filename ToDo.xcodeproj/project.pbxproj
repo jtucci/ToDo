@@ -16,6 +16,14 @@
 		F0056E9D22EB99AA00629EB5 /* UILabel+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0056E9C22EB99AA00629EB5 /* UILabel+Init.swift */; };
 		F0056E9F22EB99B500629EB5 /* UIImageView+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0056E9E22EB99B500629EB5 /* UIImageView+Init.swift */; };
 		F0056EA122EB99E800629EB5 /* UITableView+Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0056EA022EB99E800629EB5 /* UITableView+Update.swift */; };
+		F0056EAD22EB9CA800629EB5 /* CategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0056EAC22EB9CA800629EB5 /* CategoryController.swift */; };
+		F0056EAF22EB9CD200629EB5 /* CircularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0056EAE22EB9CD200629EB5 /* CircularButton.swift */; };
+		F0056EB122EB9D0F00629EB5 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0056EB022EB9D0F00629EB5 /* CategoryCell.swift */; };
+		F0056EB322EB9EF500629EB5 /* CategoryFooterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0056EB222EB9EF500629EB5 /* CategoryFooterCell.swift */; };
+		F0056EB522EBA2D500629EB5 /* AddCategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0056EB422EBA2D500629EB5 /* AddCategoryController.swift */; };
+		F0056EB722EBA2F000629EB5 /* AddCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0056EB622EBA2F000629EB5 /* AddCategoryCell.swift */; };
+		F0056EB922EBA34200629EB5 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0056EB822EBA34200629EB5 /* Category.swift */; };
+		F0056EBB22EBA35B00629EB5 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0056EBA22EBA35B00629EB5 /* ToDoItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +40,14 @@
 		F0056E9C22EB99AA00629EB5 /* UILabel+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Init.swift"; sourceTree = "<group>"; };
 		F0056E9E22EB99B500629EB5 /* UIImageView+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Init.swift"; sourceTree = "<group>"; };
 		F0056EA022EB99E800629EB5 /* UITableView+Update.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Update.swift"; sourceTree = "<group>"; };
+		F0056EAC22EB9CA800629EB5 /* CategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryController.swift; sourceTree = "<group>"; };
+		F0056EAE22EB9CD200629EB5 /* CircularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularButton.swift; sourceTree = "<group>"; };
+		F0056EB022EB9D0F00629EB5 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		F0056EB222EB9EF500629EB5 /* CategoryFooterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFooterCell.swift; sourceTree = "<group>"; };
+		F0056EB422EBA2D500629EB5 /* AddCategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryController.swift; sourceTree = "<group>"; };
+		F0056EB622EBA2F000629EB5 /* AddCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryCell.swift; sourceTree = "<group>"; };
+		F0056EB822EBA34200629EB5 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		F0056EBA22EBA35B00629EB5 /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +68,6 @@
 				5248C5E619FEE2FD5F7B43BD /* Pods-ToDo.debug.xcconfig */,
 				B652E401DE74E87253D63531 /* Pods-ToDo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -107,8 +122,8 @@
 		F0056E9422EB96BE00629EB5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F0056EA322EB9A2900629EB5 /* ToDo */,
 				F0056EA222EB9A1800629EB5 /* Category */,
+				F0056EA322EB9A2900629EB5 /* ToDo */,
 				F0056E8322EB96AE00629EB5 /* ViewController.swift */,
 			);
 			path = Controllers;
@@ -117,6 +132,8 @@
 		F0056E9522EB96C400629EB5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F0056EB822EBA34200629EB5 /* Category.swift */,
+				F0056EBA22EBA35B00629EB5 /* ToDoItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -178,6 +195,7 @@
 		F0056EA422EB9A3200629EB5 /* Add Category Page */ = {
 			isa = PBXGroup;
 			children = (
+				F0056EB422EBA2D500629EB5 /* AddCategoryController.swift */,
 			);
 			path = "Add Category Page";
 			sourceTree = "<group>";
@@ -185,6 +203,7 @@
 		F0056EA522EB9A4100629EB5 /* Category Page */ = {
 			isa = PBXGroup;
 			children = (
+				F0056EAC22EB9CA800629EB5 /* CategoryController.swift */,
 			);
 			path = "Category Page";
 			sourceTree = "<group>";
@@ -192,8 +211,8 @@
 		F0056EA722EB9A6600629EB5 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				F0056EAB22EB9B3700629EB5 /* Add Edit Category Page */,
 				F0056EAA22EB9B2D00629EB5 /* Category Page */,
+				F0056EAB22EB9B3700629EB5 /* Add Edit Category Page */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -208,6 +227,7 @@
 		F0056EA922EB9A7100629EB5 /* UIElements */ = {
 			isa = PBXGroup;
 			children = (
+				F0056EAE22EB9CD200629EB5 /* CircularButton.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -215,6 +235,8 @@
 		F0056EAA22EB9B2D00629EB5 /* Category Page */ = {
 			isa = PBXGroup;
 			children = (
+				F0056EB022EB9D0F00629EB5 /* CategoryCell.swift */,
+				F0056EB222EB9EF500629EB5 /* CategoryFooterCell.swift */,
 			);
 			path = "Category Page";
 			sourceTree = "<group>";
@@ -222,6 +244,7 @@
 		F0056EAB22EB9B3700629EB5 /* Add Edit Category Page */ = {
 			isa = PBXGroup;
 			children = (
+				F0056EB622EBA2F000629EB5 /* AddCategoryCell.swift */,
 			);
 			path = "Add Edit Category Page";
 			sourceTree = "<group>";
@@ -347,12 +370,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0056EAF22EB9CD200629EB5 /* CircularButton.swift in Sources */,
 				F0056E9F22EB99B500629EB5 /* UIImageView+Init.swift in Sources */,
+				F0056EBB22EBA35B00629EB5 /* ToDoItem.swift in Sources */,
 				F0056E8422EB96AE00629EB5 /* ViewController.swift in Sources */,
+				F0056EB722EBA2F000629EB5 /* AddCategoryCell.swift in Sources */,
 				F0056EA122EB99E800629EB5 /* UITableView+Update.swift in Sources */,
+				F0056EAD22EB9CA800629EB5 /* CategoryController.swift in Sources */,
+				F0056EB122EB9D0F00629EB5 /* CategoryCell.swift in Sources */,
+				F0056EB322EB9EF500629EB5 /* CategoryFooterCell.swift in Sources */,
 				F0056E8222EB96AE00629EB5 /* AppDelegate.swift in Sources */,
+				F0056EB922EBA34200629EB5 /* Category.swift in Sources */,
 				F0056E9D22EB99AA00629EB5 /* UILabel+Init.swift in Sources */,
 				F0056E9B22EB999E00629EB5 /* UIView+Layout.swift in Sources */,
+				F0056EB522EBA2D500629EB5 /* AddCategoryController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
