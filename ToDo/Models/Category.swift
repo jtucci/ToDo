@@ -12,10 +12,12 @@ import RealmSwift
 class Category: Object {
     
     enum Property: String {
-        case id, text, isCompleted
+        case id, name
     }
     
+    @objc dynamic var id = UUID().uuidString
     @objc dynamic var name = ""
+    
     let toDoItems = List<ToDoItem>()
     
     convenience init(_ name: String) {
@@ -25,12 +27,18 @@ class Category: Object {
     
 }
 
-// MARK: - CRUD methods
+//MARK: - CRUD
 
 extension Category {
-    
+    // Gets all tasks
     static func all(in realm: Realm = try! Realm()) -> Results<Category> {
         return realm.objects(Category.self)
+    }
+    
+    // Gets all tasks associated with current category
+    func allTasks(in realm: Realm = try! Realm()) -> Results<ToDoItem> {
+        let predicate = NSPredicate(format: "id == %@", self.id)
+        return realm.objects(ToDoItem.self).filter(predicate).sorted(byKeyPath: "isCompleted")
     }
     
     @discardableResult
@@ -46,31 +54,36 @@ extension Category {
         
         return category
     }
+    
+    func update(name: String, in realm: Realm = try! Realm()) {
+        
+        do {
+            try realm.write {
+                self.name = name
+            }
+        } catch {
+            print("Error updating category: \(error)")
+        }
+    }
+    
+    func addToDo(name: String, in realm: Realm = try! Realm()){
+        do {
+            try realm.write {
+                let newTodo = ToDoItem(name)
+                newTodo.id = id
+                toDoItems.append(newTodo)
+            }
+        }catch{
+            print("Error adding Task: \(error)")
+        }
+    }
+    
+    
+    func delete() {
+        guard let realm = realm else { return }
+        try! realm.write {
+            realm.delete(self)
+        }
+    }
 }
-//
-//    @discardableResult
-//    static func add(text: String, in realm: Realm = try! Realm()) -> ToDoItem {
-//        let item = ToDoItem(text)
-//        try! realm.write {
-//            realm.add(item)
-//        }
-//        return item
-//    }
-//
-//    func toggleCompleted() {
-//        guard let realm = realm else { return }
-//        try! realm.write {
-//            isCompleted = !isCompleted
-//        }
-//    }
-//
-//    func delete() {
-//        guard let realm = realm else { return }
-//        try! realm.write {
-//            realm.delete(self)
-//        }
-//    }
-//}
-
-
 

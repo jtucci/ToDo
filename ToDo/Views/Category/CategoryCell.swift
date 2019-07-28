@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SwipeCellKit
 
-class CategoryCell: UITableViewCell {
+class CategoryCell: SwipeTableViewCell {
     
     //MARK:- Properties
     let iconImageView: UIImageView = UIImageView(cornerRadius: 8)
@@ -34,7 +35,7 @@ class CategoryCell: UITableViewCell {
         iconImageView.constrainHeight(constant: 24)
         let stackView = UIStackView(arrangedSubviews: [iconImageView, categoryLabel, itemCountLabel])
         stackView.spacing = 10
-        addSubview(stackView)
+        contentView.addSubview(stackView)
         stackView.fillSuperview(padding: .init(top: 10, left: 10, bottom: 10, right: 10))
     }
     

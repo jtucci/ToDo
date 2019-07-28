@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import SwipeCellKit
 
 struct CategoryConstants {
     
@@ -31,6 +32,9 @@ class CategoryController: UITableViewController {
     
     // UI Elements
     var addButton = CircleButton()
+    
+    // Used to track index of cell with Swipe Options opened so it can be closed when transitioning to new view
+    var swipedIndex: IndexPath?
     
     //MARK:- Life Cycle
     override func viewDidLoad() {
@@ -93,9 +97,17 @@ class CategoryController: UITableViewController {
     
     //Add new list
     @objc func handleCreateListTapped() {
+        // Checks if a cell has been swiped if swipe options (delete, edit) are visible it will dismiss them
+        if let index = swipedIndex {
+            let cell = tableView.cellForRow(at: index) as! SwipeTableViewCell
+            cell.hideSwipe(animated: true)
+            swipedIndex = nil
+        }
         let navController = UINavigationController(rootViewController: AddCategoryController())
         navigationController?.present(navController, animated: true)
     }
+    
+    
     //MARK:- TableView Data Source
     
     // Standard Cell
@@ -105,6 +117,7 @@ class CategoryController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! CategoryCell
+        cell.delegate = self
         if let category = categories?[indexPath.row] {
             cell.categoryLabel.text = category.name
             cell.itemCountLabel.text = String(category.toDoItems.count)
@@ -118,9 +131,8 @@ class CategoryController: UITableViewController {
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleCreateListTapped))
         footerView.addGestureRecognizer(tapRecognizer)
         return footerView
-        
-        
     }
+    
     //MARK: TableView Layout
     // Standard Cell
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -139,6 +151,49 @@ class CategoryController: UITableViewController {
         }
     }
     
+}
 
+
+
+//MARK:- SwipeCellKit Delegate
+extension CategoryController: SwipeTableViewCellDelegate {
     
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+        
+        let deleteAction = SwipeAction(style: .default , title: nil) { (action, indexPath) in
+            if let category = self.categories?[indexPath.item] {
+                category.delete()
+                //Dismiss swipe
+                action.hidesWhenSelected = true
+                self.swipedIndex = nil
+            }
+        }
+        
+        let editAction = SwipeAction(style: .default, title: nil) { action, indexPath in
+            // handle action by updating model with deletion
+            let vc = AddCategoryController()
+            vc.editedCategory = self.categories?[indexPath.item]
+            let navController = UINavigationController(rootViewController: vc)
+            // Dismiss swipe
+            action.hidesWhenSelected = true
+            self.swipedIndex = nil
+            self.navigationController?.present(navController, animated: true)
+        }
+        
+        // customize the action appearance
+        deleteAction.image = UIImage(named: "trash-icon-white")?.resizedImage(newSize: CGSize(width: 28  , height: 28))
+        deleteAction.backgroundColor = #colorLiteral(red: 0.8881979585, green: 0.3072378635, blue: 0.2069461644, alpha: 1)
+        
+        editAction.image = UIImage(named:"settings-icon")?.resizedImage(newSize: CGSize(width: 28 , height: 28))
+        editAction.backgroundColor = #colorLiteral(red: 0.2389388382, green: 0.5892125368, blue: 0.8818323016, alpha: 1)
+        
+        return [deleteAction, editAction]
+    }
+
+    // Used to ensure swiped cell is dismissed when transitioning to new scene
+    func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) {
+            swipedIndex = indexPath
+    }
+
 }

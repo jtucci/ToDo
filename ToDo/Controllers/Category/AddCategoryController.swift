@@ -14,6 +14,9 @@ class AddCategoryController: UICollectionViewController, UICollectionViewDelegat
     fileprivate let cellId = "cellId"
     var newCategoryName = ""
     var textField =  UITextField()
+    
+    var editedCategory: Category?
+    
     //MARK:- Initialization
     init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
@@ -28,15 +31,27 @@ class AddCategoryController: UICollectionViewController, UICollectionViewDelegat
         super.viewDidLoad()
         setupCollectionView()
         setupNavBar()
+        if let editedCategory = editedCategory {
+            textField.text = editedCategory.name
+            self.title = "Update List"
+        } else {
+            self.title = "New List"
+        }
+        
     }
     
     
     //MARK:- Actions
     @objc func handleSaveTapped() {
         guard let newCategoryName = textField.text else { return }
-        Category.add(name: newCategoryName)
-        dismiss(animated: true)
         
+        if editedCategory != nil {
+            editedCategory?.update(name: newCategoryName)
+        } else {
+            Category.add(name: newCategoryName)
+        }
+        
+        dismiss(animated: true)
         
     }
     
@@ -70,7 +85,9 @@ class AddCategoryController: UICollectionViewController, UICollectionViewDelegat
         textField = cell.textField
         textField.delegate = self
         textField.becomeFirstResponder()
-        
+        if let editedCategory = editedCategory{
+            textField.text = editedCategory.name
+        }
         return cell
     }
     

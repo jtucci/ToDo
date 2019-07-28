@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		00DD283EF41C432EAFD903AC /* Pods_ToDo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E8F9273B1F7702AC6B9D6EE /* Pods_ToDo.framework */; };
 		F0056E8222EB96AE00629EB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0056E8122EB96AE00629EB5 /* AppDelegate.swift */; };
-		F0056E8422EB96AE00629EB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0056E8322EB96AE00629EB5 /* ViewController.swift */; };
 		F0056E8922EB96B000629EB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0056E8822EB96B000629EB5 /* Assets.xcassets */; };
 		F0056E8C22EB96B000629EB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0056E8A22EB96B000629EB5 /* LaunchScreen.storyboard */; };
 		F0056E9B22EB999E00629EB5 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0056E9A22EB999E00629EB5 /* UIView+Layout.swift */; };
@@ -24,6 +23,7 @@
 		F0056EB722EBA2F000629EB5 /* AddCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0056EB622EBA2F000629EB5 /* AddCategoryCell.swift */; };
 		F0056EB922EBA34200629EB5 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0056EB822EBA34200629EB5 /* Category.swift */; };
 		F0056EBB22EBA35B00629EB5 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0056EBA22EBA35B00629EB5 /* ToDoItem.swift */; };
+		F0F646B622EE24120085A8CC /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F646B522EE24120085A8CC /* UIImage+Resize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +32,6 @@
 		B652E401DE74E87253D63531 /* Pods-ToDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDo.release.xcconfig"; path = "Target Support Files/Pods-ToDo/Pods-ToDo.release.xcconfig"; sourceTree = "<group>"; };
 		F0056E7E22EB96AE00629EB5 /* ToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0056E8122EB96AE00629EB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F0056E8322EB96AE00629EB5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F0056E8822EB96B000629EB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F0056E8B22EB96B000629EB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F0056E8D22EB96B000629EB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -48,6 +47,7 @@
 		F0056EB622EBA2F000629EB5 /* AddCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryCell.swift; sourceTree = "<group>"; };
 		F0056EB822EBA34200629EB5 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		F0056EBA22EBA35B00629EB5 /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
+		F0F646B522EE24120085A8CC /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +124,6 @@
 			children = (
 				F0056EA222EB9A1800629EB5 /* Category */,
 				F0056EA322EB9A2900629EB5 /* ToDo */,
-				F0056E8322EB96AE00629EB5 /* ViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -155,6 +154,7 @@
 				F0056E9C22EB99AA00629EB5 /* UILabel+Init.swift */,
 				F0056E9E22EB99B500629EB5 /* UIImageView+Init.swift */,
 				F0056EA022EB99E800629EB5 /* UITableView+Update.swift */,
+				F0F646B522EE24120085A8CC /* UIImage+Resize.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -179,8 +179,8 @@
 		F0056EA222EB9A1800629EB5 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				F0056EA522EB9A4100629EB5 /* Category Page */,
-				F0056EA422EB9A3200629EB5 /* Add Category Page */,
+				F0056EAC22EB9CA800629EB5 /* CategoryController.swift */,
+				F0056EB422EBA2D500629EB5 /* AddCategoryController.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -192,26 +192,11 @@
 			path = ToDo;
 			sourceTree = "<group>";
 		};
-		F0056EA422EB9A3200629EB5 /* Add Category Page */ = {
-			isa = PBXGroup;
-			children = (
-				F0056EB422EBA2D500629EB5 /* AddCategoryController.swift */,
-			);
-			path = "Add Category Page";
-			sourceTree = "<group>";
-		};
-		F0056EA522EB9A4100629EB5 /* Category Page */ = {
-			isa = PBXGroup;
-			children = (
-				F0056EAC22EB9CA800629EB5 /* CategoryController.swift */,
-			);
-			path = "Category Page";
-			sourceTree = "<group>";
-		};
 		F0056EA722EB9A6600629EB5 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				F0056EAA22EB9B2D00629EB5 /* Category Page */,
+				F0056EB022EB9D0F00629EB5 /* CategoryCell.swift */,
+				F0056EB222EB9EF500629EB5 /* CategoryFooterCell.swift */,
 				F0056EAB22EB9B3700629EB5 /* Add Edit Category Page */,
 			);
 			path = Category;
@@ -230,15 +215,6 @@
 				F0056EAE22EB9CD200629EB5 /* CircularButton.swift */,
 			);
 			path = UIElements;
-			sourceTree = "<group>";
-		};
-		F0056EAA22EB9B2D00629EB5 /* Category Page */ = {
-			isa = PBXGroup;
-			children = (
-				F0056EB022EB9D0F00629EB5 /* CategoryCell.swift */,
-				F0056EB222EB9EF500629EB5 /* CategoryFooterCell.swift */,
-			);
-			path = "Category Page";
 			sourceTree = "<group>";
 		};
 		F0056EAB22EB9B3700629EB5 /* Add Edit Category Page */ = {
@@ -328,6 +304,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-ToDo/Pods-ToDo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -335,6 +312,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -373,11 +351,11 @@
 				F0056EAF22EB9CD200629EB5 /* CircularButton.swift in Sources */,
 				F0056E9F22EB99B500629EB5 /* UIImageView+Init.swift in Sources */,
 				F0056EBB22EBA35B00629EB5 /* ToDoItem.swift in Sources */,
-				F0056E8422EB96AE00629EB5 /* ViewController.swift in Sources */,
 				F0056EB722EBA2F000629EB5 /* AddCategoryCell.swift in Sources */,
 				F0056EA122EB99E800629EB5 /* UITableView+Update.swift in Sources */,
 				F0056EAD22EB9CA800629EB5 /* CategoryController.swift in Sources */,
 				F0056EB122EB9D0F00629EB5 /* CategoryCell.swift in Sources */,
+				F0F646B622EE24120085A8CC /* UIImage+Resize.swift in Sources */,
 				F0056EB322EB9EF500629EB5 /* CategoryFooterCell.swift in Sources */,
 				F0056E8222EB96AE00629EB5 /* AppDelegate.swift in Sources */,
 				F0056EB922EBA34200629EB5 /* Category.swift in Sources */,
