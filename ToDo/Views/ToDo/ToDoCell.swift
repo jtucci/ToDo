@@ -31,17 +31,29 @@ class ToDoCell: SwipeTableViewCell {
         iconImageView.constrainWidth(constant: 24)
         iconImageView.constrainHeight(constant: 24)
         
+        
         layer.masksToBounds = true
         layer.cornerRadius = 4
         
+        
+        let containerView = UIView()
+        containerView.backgroundColor = .white
+        containerView.layer.masksToBounds = true
+        containerView.layer.cornerRadius = 4
+        
         let stackView = UIStackView(arrangedSubviews: [iconImageView, nameLabel])
         stackView.spacing = 10
-        contentView.addSubview(stackView)
+        containerView.addSubview(stackView)
         stackView.fillSuperview(padding: .init(top: 10, left: 10, bottom: 10, right: 10))
+        
+        contentView.addSubview(containerView)
+        contentView.backgroundColor = .clear
+        containerView.fillSuperview(padding: .init(top: 2, left: 10, bottom: 0, right: 10))
     }
     
     private func setupProperties() {
-        backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        backgroundColor = .clear
+        
         iconImageView.image = UIImage(named: "unchecked-box")
         iconImageView.contentMode = .scaleAspectFit
     }

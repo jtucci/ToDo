@@ -154,7 +154,9 @@ class CategoryController: UITableViewController {
     
     //MARK: Selection
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let toDoViewController = ToDoController()
+        toDoViewController.parentCategory = categories?[indexPath.item]
+        navigationController?.pushViewController(toDoViewController, animated: true)
     }
 }
 
