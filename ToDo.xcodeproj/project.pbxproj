@@ -24,6 +24,9 @@
 		F0056EB922EBA34200629EB5 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0056EB822EBA34200629EB5 /* Category.swift */; };
 		F0056EBB22EBA35B00629EB5 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0056EBA22EBA35B00629EB5 /* ToDoItem.swift */; };
 		F0F646B622EE24120085A8CC /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F646B522EE24120085A8CC /* UIImage+Resize.swift */; };
+		F0F646B822EE26A80085A8CC /* ToDoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F646B722EE26A80085A8CC /* ToDoCell.swift */; };
+		F0F646BA22EE27000085A8CC /* ToDoHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F646B922EE27000085A8CC /* ToDoHeaderCell.swift */; };
+		F0F646BC22EE275D0085A8CC /* ToDoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F646BB22EE275D0085A8CC /* ToDoController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +51,9 @@
 		F0056EB822EBA34200629EB5 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		F0056EBA22EBA35B00629EB5 /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		F0F646B522EE24120085A8CC /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
+		F0F646B722EE26A80085A8CC /* ToDoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoCell.swift; sourceTree = "<group>"; };
+		F0F646B922EE27000085A8CC /* ToDoHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoHeaderCell.swift; sourceTree = "<group>"; };
+		F0F646BB22EE275D0085A8CC /* ToDoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +194,7 @@
 		F0056EA322EB9A2900629EB5 /* ToDo */ = {
 			isa = PBXGroup;
 			children = (
+				F0F646BB22EE275D0085A8CC /* ToDoController.swift */,
 			);
 			path = ToDo;
 			sourceTree = "<group>";
@@ -205,6 +212,8 @@
 		F0056EA822EB9A6C00629EB5 /* ToDo */ = {
 			isa = PBXGroup;
 			children = (
+				F0F646B722EE26A80085A8CC /* ToDoCell.swift */,
+				F0F646B922EE27000085A8CC /* ToDoHeaderCell.swift */,
 			);
 			path = ToDo;
 			sourceTree = "<group>";
@@ -352,8 +361,10 @@
 				F0056E9F22EB99B500629EB5 /* UIImageView+Init.swift in Sources */,
 				F0056EBB22EBA35B00629EB5 /* ToDoItem.swift in Sources */,
 				F0056EB722EBA2F000629EB5 /* AddCategoryCell.swift in Sources */,
+				F0F646B822EE26A80085A8CC /* ToDoCell.swift in Sources */,
 				F0056EA122EB99E800629EB5 /* UITableView+Update.swift in Sources */,
 				F0056EAD22EB9CA800629EB5 /* CategoryController.swift in Sources */,
+				F0F646BC22EE275D0085A8CC /* ToDoController.swift in Sources */,
 				F0056EB122EB9D0F00629EB5 /* CategoryCell.swift in Sources */,
 				F0F646B622EE24120085A8CC /* UIImage+Resize.swift in Sources */,
 				F0056EB322EB9EF500629EB5 /* CategoryFooterCell.swift in Sources */,
@@ -361,6 +372,7 @@
 				F0056EB922EBA34200629EB5 /* Category.swift in Sources */,
 				F0056E9D22EB99AA00629EB5 /* UILabel+Init.swift in Sources */,
 				F0056E9B22EB999E00629EB5 /* UIView+Layout.swift in Sources */,
+				F0F646BA22EE27000085A8CC /* ToDoHeaderCell.swift in Sources */,
 				F0056EB522EBA2D500629EB5 /* AddCategoryController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -108,8 +108,9 @@ class CategoryController: UITableViewController {
     }
     
     
-    //MARK:- TableView Data Source
+    //MARK:- TableView Delegate Methods
     
+    //MARK: Data Source
     // Standard Cell
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categories?.count ?? 0
@@ -133,7 +134,7 @@ class CategoryController: UITableViewController {
         return footerView
     }
     
-    //MARK: TableView Layout
+    //MARK: Layout
     // Standard Cell
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CategoryConstants.categoryCellHeight
@@ -151,6 +152,10 @@ class CategoryController: UITableViewController {
         }
     }
     
+    //MARK: Selection
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
 }
 
 
