@@ -23,6 +23,8 @@
 		F0056EB722EBA2F000629EB5 /* AddCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0056EB622EBA2F000629EB5 /* AddCategoryCell.swift */; };
 		F0056EB922EBA34200629EB5 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0056EB822EBA34200629EB5 /* Category.swift */; };
 		F0056EBB22EBA35B00629EB5 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0056EBA22EBA35B00629EB5 /* ToDoItem.swift */; };
+		F0B6F3E922F49782002FB021 /* EditToDoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B6F3E822F49782002FB021 /* EditToDoController.swift */; };
+		F0B6F3EC22F49B3C002FB021 /* ToDoDatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B6F3EB22F49B3C002FB021 /* ToDoDatePickerCell.swift */; };
 		F0F646B622EE24120085A8CC /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F646B522EE24120085A8CC /* UIImage+Resize.swift */; };
 		F0F646B822EE26A80085A8CC /* ToDoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F646B722EE26A80085A8CC /* ToDoCell.swift */; };
 		F0F646BA22EE27000085A8CC /* ToDoHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F646B922EE27000085A8CC /* ToDoHeaderCell.swift */; };
@@ -50,6 +52,8 @@
 		F0056EB622EBA2F000629EB5 /* AddCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryCell.swift; sourceTree = "<group>"; };
 		F0056EB822EBA34200629EB5 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		F0056EBA22EBA35B00629EB5 /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
+		F0B6F3E822F49782002FB021 /* EditToDoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditToDoController.swift; sourceTree = "<group>"; };
+		F0B6F3EB22F49B3C002FB021 /* ToDoDatePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoDatePickerCell.swift; sourceTree = "<group>"; };
 		F0F646B522EE24120085A8CC /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		F0F646B722EE26A80085A8CC /* ToDoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoCell.swift; sourceTree = "<group>"; };
 		F0F646B922EE27000085A8CC /* ToDoHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoHeaderCell.swift; sourceTree = "<group>"; };
@@ -195,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				F0F646BB22EE275D0085A8CC /* ToDoController.swift */,
+				F0B6F3E822F49782002FB021 /* EditToDoController.swift */,
 			);
 			path = ToDo;
 			sourceTree = "<group>";
@@ -214,6 +219,7 @@
 			children = (
 				F0F646B722EE26A80085A8CC /* ToDoCell.swift */,
 				F0F646B922EE27000085A8CC /* ToDoHeaderCell.swift */,
+				F0B6F3EA22F49B12002FB021 /* Edit ToDo Page */,
 			);
 			path = ToDo;
 			sourceTree = "<group>";
@@ -232,6 +238,14 @@
 				F0056EB622EBA2F000629EB5 /* AddCategoryCell.swift */,
 			);
 			path = "Add Edit Category Page";
+			sourceTree = "<group>";
+		};
+		F0B6F3EA22F49B12002FB021 /* Edit ToDo Page */ = {
+			isa = PBXGroup;
+			children = (
+				F0B6F3EB22F49B3C002FB021 /* ToDoDatePickerCell.swift */,
+			);
+			path = "Edit ToDo Page";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,10 +382,12 @@
 				F0056EB122EB9D0F00629EB5 /* CategoryCell.swift in Sources */,
 				F0F646B622EE24120085A8CC /* UIImage+Resize.swift in Sources */,
 				F0056EB322EB9EF500629EB5 /* CategoryFooterCell.swift in Sources */,
+				F0B6F3E922F49782002FB021 /* EditToDoController.swift in Sources */,
 				F0056E8222EB96AE00629EB5 /* AppDelegate.swift in Sources */,
 				F0056EB922EBA34200629EB5 /* Category.swift in Sources */,
 				F0056E9D22EB99AA00629EB5 /* UILabel+Init.swift in Sources */,
 				F0056E9B22EB999E00629EB5 /* UIView+Layout.swift in Sources */,
+				F0B6F3EC22F49B3C002FB021 /* ToDoDatePickerCell.swift in Sources */,
 				F0F646BA22EE27000085A8CC /* ToDoHeaderCell.swift in Sources */,
 				F0056EB522EBA2D500629EB5 /* AddCategoryController.swift in Sources */,
 			);

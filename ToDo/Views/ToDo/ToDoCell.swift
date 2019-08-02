@@ -13,6 +13,8 @@ class ToDoCell: SwipeTableViewCell {
     //MARK:- Properties
     let iconImageView: UIImageView = UIImageView(cornerRadius: 8)
     let nameLabel = UILabel(text: "ToDo Item", font: .systemFont(ofSize: 15))
+    private var coord: CGPoint = .zero
+
     
     //MARK:- Initialization
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -32,9 +34,7 @@ class ToDoCell: SwipeTableViewCell {
         iconImageView.constrainHeight(constant: 24)
         
         
-        layer.masksToBounds = true
-        layer.cornerRadius = 4
-        
+
         
         let containerView = UIView()
         containerView.backgroundColor = .white
@@ -49,6 +49,13 @@ class ToDoCell: SwipeTableViewCell {
         contentView.addSubview(containerView)
         contentView.backgroundColor = .clear
         containerView.fillSuperview(padding: .init(top: 2, left: 10, bottom: 0, right: 10))
+        
+//
+//        let highlightedView = UIView()
+//        highlightedView.backgroundColor = .red
+//        highlightedView.constrainWidth(constant: 100)
+//        highlightedView.constrainHeight(constant: 40)
+//        selectedBackgroundView = highlightedView
     }
     
     private func setupProperties() {
@@ -58,6 +65,10 @@ class ToDoCell: SwipeTableViewCell {
         iconImageView.contentMode = .scaleAspectFit
     }
     
-    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        
+    }
 }
 

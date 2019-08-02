@@ -17,12 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        // Resets realm on run
         //try! FileManager.default.removeItem(at:Realm.Configuration.defaultConfiguration.fileURL!)
         
         let nav = UINavigationController(rootViewController: CategoryController())
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window!.rootViewController = nav
+        //window!.rootViewController = EditToDoController()
         window!.makeKeyAndVisible()
         return true
     }

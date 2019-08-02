@@ -85,6 +85,13 @@ class AddCategoryController: UICollectionViewController, UICollectionViewDelegat
         textField = cell.textField
         textField.delegate = self
         textField.becomeFirstResponder()
+        // REMOVE
+        let bar = UIToolbar()
+        let category = UIBarButtonItem(title: "Test", style: .plain, target: self, action: nil)
+        bar.items = [category]
+        bar.sizeToFit()
+        textField.inputAccessoryView = bar
+        // END REMOVE
         if let editedCategory = editedCategory{
             textField.text = editedCategory.name
         }

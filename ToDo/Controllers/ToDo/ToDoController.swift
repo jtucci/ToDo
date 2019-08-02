@@ -63,6 +63,7 @@ class ToDoController: UITableViewController {
     }
     
     @objc func handleEditTapped(_ sender: UITextField) {
+        tableView.setEditing(!tableView.isEditing, animated: true)
     }
     
     @objc func handleTappedItem(sender: UITapGestureRecognizer) {
@@ -79,6 +80,8 @@ class ToDoController: UITableViewController {
         tableView.register(ToDoCell.self, forCellReuseIdentifier: cellId)
         tableView.backgroundColor = UIColor.clear
         tableView.separatorStyle = .none
+        tableView.allowsMultipleSelectionDuringEditing = true
+        
     }
     
     private func setupNavBar() {
@@ -118,8 +121,8 @@ class ToDoController: UITableViewController {
         
         cell.iconImageView.addGestureRecognizer(tapped)
         cell.delegate = self
-        
-        if let task = toDoTasks?[indexPath.item] {
+
+        if let task = toDoTasks?[indexPath.row] {
             cell.nameLabel.text = task.name
             cell.iconImageView.image = task.isCompleted ? #imageLiteral(resourceName: "checked-box") : #imageLiteral(resourceName: "unchecked-box")
         }
@@ -135,9 +138,22 @@ class ToDoController: UITableViewController {
         return headerCell
     }
     
-    //MARK: Layout
+    //MARK: Edit
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+    }
     
+  
     //MARK: Selection
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let editToDoVC = EditToDoController()
+        editToDoVC.toDo = toDoTasks?[indexPath.row]
+        navigationController?.pushViewController(editToDoVC, animated: true)
+        
+        
+        
+    }
 }
 
 //MARK:- Text field Delegate methods
@@ -170,7 +186,7 @@ extension ToDoController: SwipeTableViewCellDelegate {
         guard orientation == .right else { return nil }
         
         let deleteAction = SwipeAction(style: .default , title: nil) { (action, indexPath) in
-            if let task = self.toDoTasks?[indexPath.item] {
+            if let task = self.toDoTasks?[indexPath.row] {
                 task.delete()
                 //Dismiss swipe
                 action.hidesWhenSelected = true
@@ -201,4 +217,6 @@ extension ToDoController: SwipeTableViewCellDelegate {
     func collectionView(_ collectionView: UICollectionView, willBeginEditingItemAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) {
         swipedIndex = indexPath
     }
+    
+    
 }
