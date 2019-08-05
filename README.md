@@ -1,5 +1,5 @@
 # ToDo
-Simple task manager app for iOS. 
+Simple task manager app for iOS. (Currently being worked on)
 
 ### Demo 
 ![](demoFiles/Adding.gif)
@@ -9,6 +9,8 @@ Simple task manager app for iOS.
   - UICollectionView, UITableView
   - Realm 
   - Notifcations 
+  - SwipeCellKit 
+  - UIDatePicker
  
  ### Future features  
 **Currently being worked on**
