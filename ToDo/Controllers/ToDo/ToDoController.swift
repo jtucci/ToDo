@@ -57,7 +57,9 @@ class ToDoController: UITableViewController {
     // Hides keyboard
     @objc func handleDoneTapped(_ sender: UITextField) {
         self.view.endEditing(true)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.edit, target: self, action: #selector(handleEditTapped))
+        
+        // Bar item disabled until implementation of its associated action is completed 
+        //navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.edit, target: self, action: #selector(handleEditTapped))
     }
     
     @objc func handleEditTapped(_ sender: UITextField) {
@@ -188,9 +190,13 @@ extension ToDoController: SwipeTableViewCellDelegate {
         
         let editAction = SwipeAction(style: .default, title: nil) { action, indexPath in
             
+            let editToDoVC = EditToDoController()
+            editToDoVC.toDo = self.toDoTasks?[indexPath.row]
+            self.navigationController?.pushViewController(editToDoVC, animated: true)
             // Dismiss swipe
             action.hidesWhenSelected = true
             self.swipedIndex = nil
+            
             
         }
         

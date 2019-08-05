@@ -11,7 +11,7 @@ import UIKit
 class AddCategoryCell: UICollectionViewCell {
     
     //MARK:- Properties
-    let iconImageView: UIImageView = UIImageView(cornerRadius: 8)
+    let iconImageView: UIImageView = UIImageView(image: UIImage.ToDo.listIcon)
     let textField = UITextField()
     
     //MARK:- Initialization
@@ -30,6 +30,7 @@ class AddCategoryCell: UICollectionViewCell {
     private func setupLayout() {
         iconImageView.constrainWidth(constant: 24)
         iconImageView.constrainHeight(constant: 24)
+        iconImageView.contentMode = .scaleAspectFit
         let stackView = UIStackView(arrangedSubviews: [iconImageView, textField])
         stackView.spacing = 10
         addSubview(stackView)
@@ -37,7 +38,6 @@ class AddCategoryCell: UICollectionViewCell {
     }
     
     private func setupProperties() {
-        iconImageView.image = UIImage.ToDo.listIcon
         iconImageView.contentMode = .scaleAspectFit
         
         textField.attributedPlaceholder = NSAttributedString(string: "List Name...",

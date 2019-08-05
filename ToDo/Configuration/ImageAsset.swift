@@ -12,30 +12,31 @@ extension UIImage {
     
     enum ToDo {
         
-        
+        // Used if requested image is not found
+        private static var defaultImage = UIImage()
         
         static var listIcon: UIImage {
-            return UIImage(named: "list-icon")!
+            return UIImage(named: "list-icon") ?? defaultImage
         }
         
         static var uncheckedBox: UIImage {
-            return UIImage(named: "unchecked-box")!
+            return UIImage(named: "unchecked-box") ?? defaultImage
         }
         
         static var checkedBox: UIImage {
-            return UIImage(named: "checked-box")!
+            return UIImage(named: "checked-box") ?? defaultImage
         }
         
         static var trash: UIImage {
-            return UIImage(named: "trash-icon")!
+            return UIImage(named: "trash-icon-white") ?? defaultImage
         }
         
         static var settings: UIImage {
-            return UIImage(named: "settings-box")!
+            return UIImage(named: "settings-icon") ?? defaultImage
         }
         
         static var calendar: UIImage {
-            return UIImage(named: "calendar")!
+            return UIImage(named: "calendar") ?? defaultImage
         }
         
         
