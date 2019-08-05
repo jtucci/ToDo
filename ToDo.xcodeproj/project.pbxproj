@@ -25,6 +25,11 @@
 		F0056EBB22EBA35B00629EB5 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0056EBA22EBA35B00629EB5 /* ToDoItem.swift */; };
 		F0B6F3E922F49782002FB021 /* EditToDoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B6F3E822F49782002FB021 /* EditToDoController.swift */; };
 		F0B6F3EC22F49B3C002FB021 /* ToDoDatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B6F3EB22F49B3C002FB021 /* ToDoDatePickerCell.swift */; };
+		F0D3B80322F76254005F89F0 /* ToDoNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D3B80222F76254005F89F0 /* ToDoNameCell.swift */; };
+		F0D3B80A22F77C67005F89F0 /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D3B80922F77C67005F89F0 /* ColorTheme.swift */; };
+		F0D3B80C22F78FEF005F89F0 /* FontTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D3B80B22F78FEF005F89F0 /* FontTheme.swift */; };
+		F0D3B80E22F7943E005F89F0 /* ImageAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D3B80D22F7943E005F89F0 /* ImageAsset.swift */; };
+		F0D3B81022F798BE005F89F0 /* Layout .swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D3B80F22F798BE005F89F0 /* Layout .swift */; };
 		F0F646B622EE24120085A8CC /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F646B522EE24120085A8CC /* UIImage+Resize.swift */; };
 		F0F646B822EE26A80085A8CC /* ToDoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F646B722EE26A80085A8CC /* ToDoCell.swift */; };
 		F0F646BA22EE27000085A8CC /* ToDoHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F646B922EE27000085A8CC /* ToDoHeaderCell.swift */; };
@@ -54,6 +59,11 @@
 		F0056EBA22EBA35B00629EB5 /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		F0B6F3E822F49782002FB021 /* EditToDoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditToDoController.swift; sourceTree = "<group>"; };
 		F0B6F3EB22F49B3C002FB021 /* ToDoDatePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoDatePickerCell.swift; sourceTree = "<group>"; };
+		F0D3B80222F76254005F89F0 /* ToDoNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoNameCell.swift; sourceTree = "<group>"; };
+		F0D3B80922F77C67005F89F0 /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
+		F0D3B80B22F78FEF005F89F0 /* FontTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontTheme.swift; sourceTree = "<group>"; };
+		F0D3B80D22F7943E005F89F0 /* ImageAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAsset.swift; sourceTree = "<group>"; };
+		F0D3B80F22F798BE005F89F0 /* Layout .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Layout .swift"; sourceTree = "<group>"; };
 		F0F646B522EE24120085A8CC /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		F0F646B722EE26A80085A8CC /* ToDoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoCell.swift; sourceTree = "<group>"; };
 		F0F646B922EE27000085A8CC /* ToDoHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoHeaderCell.swift; sourceTree = "<group>"; };
@@ -115,6 +125,7 @@
 				F0056E9522EB96C400629EB5 /* Models */,
 				F0056E9422EB96BE00629EB5 /* Controllers */,
 				F0056E9722EB96CF00629EB5 /* Extensions */,
+				F0D3B80822F77C53005F89F0 /* Configuration */,
 				F0056E9822EB96D200629EB5 /* Resources */,
 				F0056E9922EB96D600629EB5 /* Support Files */,
 			);
@@ -244,8 +255,20 @@
 			isa = PBXGroup;
 			children = (
 				F0B6F3EB22F49B3C002FB021 /* ToDoDatePickerCell.swift */,
+				F0D3B80222F76254005F89F0 /* ToDoNameCell.swift */,
 			);
 			path = "Edit ToDo Page";
+			sourceTree = "<group>";
+		};
+		F0D3B80822F77C53005F89F0 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				F0D3B80922F77C67005F89F0 /* ColorTheme.swift */,
+				F0D3B80B22F78FEF005F89F0 /* FontTheme.swift */,
+				F0D3B80D22F7943E005F89F0 /* ImageAsset.swift */,
+				F0D3B80F22F798BE005F89F0 /* Layout .swift */,
+			);
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,16 +398,21 @@
 				F0056E9F22EB99B500629EB5 /* UIImageView+Init.swift in Sources */,
 				F0056EBB22EBA35B00629EB5 /* ToDoItem.swift in Sources */,
 				F0056EB722EBA2F000629EB5 /* AddCategoryCell.swift in Sources */,
+				F0D3B80322F76254005F89F0 /* ToDoNameCell.swift in Sources */,
 				F0F646B822EE26A80085A8CC /* ToDoCell.swift in Sources */,
+				F0D3B81022F798BE005F89F0 /* Layout .swift in Sources */,
 				F0056EA122EB99E800629EB5 /* UITableView+Update.swift in Sources */,
 				F0056EAD22EB9CA800629EB5 /* CategoryController.swift in Sources */,
 				F0F646BC22EE275D0085A8CC /* ToDoController.swift in Sources */,
 				F0056EB122EB9D0F00629EB5 /* CategoryCell.swift in Sources */,
+				F0D3B80E22F7943E005F89F0 /* ImageAsset.swift in Sources */,
 				F0F646B622EE24120085A8CC /* UIImage+Resize.swift in Sources */,
 				F0056EB322EB9EF500629EB5 /* CategoryFooterCell.swift in Sources */,
 				F0B6F3E922F49782002FB021 /* EditToDoController.swift in Sources */,
 				F0056E8222EB96AE00629EB5 /* AppDelegate.swift in Sources */,
+				F0D3B80C22F78FEF005F89F0 /* FontTheme.swift in Sources */,
 				F0056EB922EBA34200629EB5 /* Category.swift in Sources */,
+				F0D3B80A22F77C67005F89F0 /* ColorTheme.swift in Sources */,
 				F0056E9D22EB99AA00629EB5 /* UILabel+Init.swift in Sources */,
 				F0056E9B22EB999E00629EB5 /* UIView+Layout.swift in Sources */,
 				F0B6F3EC22F49B3C002FB021 /* ToDoDatePickerCell.swift in Sources */,

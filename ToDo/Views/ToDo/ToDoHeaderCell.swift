@@ -11,7 +11,7 @@ import UIKit
 final class ToDoHeaderCell: UITableViewHeaderFooterView {
     
     //MARK:- Properties
-    let iconLabel = UILabel(text: "+", font: .systemFont(ofSize: 30) )
+    let iconLabel = UILabel(text: "＋", font: UIFont.ToDo.largeText )
     let textField = UITextField()
     let containerView = UIView()
     
@@ -43,11 +43,11 @@ final class ToDoHeaderCell: UITableViewHeaderFooterView {
     
     private func setupProperties(){
         
-        iconLabel.textColor = .white
+        iconLabel.textColor = UIColor.ToDo.darkTextColor
         
         textField.attributedPlaceholder = NSAttributedString(string: "Add a ToDo ...",
-                                                             attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)])
-        textField.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+                                                             attributes: [NSAttributedString.Key.foregroundColor: UIColor.ToDo.darkTextColor])
+        textField.textColor = UIColor.ToDo.darkTextColor
         textField.textAlignment = .left
         textField.returnKeyType = UIReturnKeyType.next
         textField.clearButtonMode = UITextField.ViewMode.whileEditing
@@ -56,10 +56,15 @@ final class ToDoHeaderCell: UITableViewHeaderFooterView {
         
         containerView.layer.masksToBounds = true
         containerView.layer.cornerRadius = 4
-        containerView.backgroundColor = #colorLiteral(red: 0.05098039216, green: 0.2, blue: 0.2509803922, alpha: 1)
+        containerView.backgroundColor = UIColor.ToDo.darkCellBackGroundColor
+        
+   
         
         self.backgroundView = UIView(frame: self.bounds)
-        self.backgroundView?.backgroundColor = UIColor(white: 0.5, alpha: 0.5)
+        self.backgroundView?.backgroundColor = UIColor(white: 0.5, alpha: 0.0)
+        
+        //contentView.backgroundColor = .clear
+        //backgroundView?.backgroundColor = .clear
     }
     
 }

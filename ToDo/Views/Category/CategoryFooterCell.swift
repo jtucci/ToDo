@@ -10,8 +10,8 @@ import UIKit
 
 final class CategoryFooterCell: UITableViewHeaderFooterView {
     //MARK:- Properties
-    let iconLabel = UILabel(text: "＋", font: .systemFont(ofSize: 20) )
-    let titleLabel = UILabel(text: "Create new list", font: .systemFont(ofSize: 15))
+    let iconLabel = UILabel(text: "＋", font: UIFont.ToDo.largeText )
+    let titleLabel = UILabel(text: "Create new list", font: UIFont.ToDo.cellTitleText)
     
     //MARK:- Initialization
     
@@ -37,8 +37,8 @@ final class CategoryFooterCell: UITableViewHeaderFooterView {
     }
     
     private func setupProperties() {
-        iconLabel.textColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
-        titleLabel.textColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+        iconLabel.textColor = UIColor.ToDo.systemTextColor
+        titleLabel.textColor = UIColor.ToDo.systemTextColor
     }
     
     

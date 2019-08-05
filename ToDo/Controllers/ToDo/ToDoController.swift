@@ -27,7 +27,6 @@ class ToDoController: UITableViewController {
     
     var parentCategory : Category!{
         didSet{
-            // toDoItems = parentCategory?.toDoItems
             toDoTasks = parentCategory?.allTasks()
         }
     }
@@ -38,7 +37,6 @@ class ToDoController: UITableViewController {
         setupNavBar()
         setupTableView()
         addBackgroundGradient()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,8 +83,8 @@ class ToDoController: UITableViewController {
     }
     
     private func setupNavBar() {
-        navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.07201969673, green: 0.2897559313, blue: 0.3654557808, alpha: 1)
+        navigationController?.navigationBar.tintColor = UIColor.ToDo.lightTextColor
+        navigationController?.navigationBar.barTintColor = UIColor.ToDo.navBarColor
         navigationController?.navigationBar.barStyle = .black
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.edit, target: self, action: #selector(handleEditTapped))
@@ -95,13 +93,12 @@ class ToDoController: UITableViewController {
     private func addBackgroundGradient() {
         let collectionViewBackgroundView = UIView()
         let gradientLayer = CAGradientLayer()
+        
         gradientLayer.frame.size = view.frame.size
-        // Start and end for left to right gradient
-        
-        
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.3)
         gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0)
-        gradientLayer.colors = [#colorLiteral(red: 0.07058823529, green: 0.2784313725, blue: 0.3450980392, alpha: 1).cgColor, #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0).cgColor]
+        gradientLayer.colors = [UIColor.ToDo.backgroundGradientDark.cgColor, UIColor.ToDo.backgroundGradientLight.cgColor]
+        
         tableView.backgroundView = collectionViewBackgroundView
         tableView.backgroundView?.layer.addSublayer(gradientLayer)
     }
@@ -115,25 +112,19 @@ class ToDoController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! ToDoCell
-        cell.iconImageView.isUserInteractionEnabled = true
-        let tapped:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTappedItem))
-        tapped.numberOfTapsRequired = 1
+        let toDo = toDoTasks![indexPath.row]
+        let tapped: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTappedItem))
         
+        cell.toDoItem = toDo
         cell.iconImageView.addGestureRecognizer(tapped)
         cell.delegate = self
-
-        if let task = toDoTasks?[indexPath.row] {
-            cell.nameLabel.text = task.name
-            cell.iconImageView.image = task.isCompleted ? #imageLiteral(resourceName: "checked-box") : #imageLiteral(resourceName: "unchecked-box")
-        }
+        
         return cell
     }
     
     //Header Cell
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerCell = ToDoHeaderCell()
-        headerCell.backgroundView?.backgroundColor = .clear
-        headerCell.contentView.backgroundColor = .clear
         headerCell.textField.delegate = self
         return headerCell
     }
@@ -146,13 +137,14 @@ class ToDoController: UITableViewController {
   
     //MARK: Selection
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let editToDoVC = EditToDoController()
         editToDoVC.toDo = toDoTasks?[indexPath.row]
         navigationController?.pushViewController(editToDoVC, animated: true)
-        
-        
-        
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
     }
 }
 
@@ -203,11 +195,11 @@ extension ToDoController: SwipeTableViewCellDelegate {
         }
         
         // customize the action appearance
-        deleteAction.image = UIImage(named: "trash-icon-white")?.resizedImage(newSize: CGSize(width: 28  , height: 28))
-        deleteAction.backgroundColor = #colorLiteral(red: 0.8881979585, green: 0.3072378635, blue: 0.2069461644, alpha: 1)
+        deleteAction.image = UIImage.ToDo.trash.resizedImage(newSize: CGSize(width: 28  , height: 28))
+        deleteAction.backgroundColor = UIColor.ToDo.deleteSwipeBackgroundColor
         
-        editAction.image = UIImage(named:"settings-icon")?.resizedImage(newSize: CGSize(width: 28 , height: 28))
-        editAction.backgroundColor = #colorLiteral(red: 0.2389388382, green: 0.5892125368, blue: 0.8818323016, alpha: 1)
+        editAction.image = UIImage.ToDo.settings.resizedImage(newSize: CGSize(width: 28 , height: 28))
+        editAction.backgroundColor = UIColor.ToDo.editSwipeBackgroundColor
         
         return [deleteAction, editAction]
         

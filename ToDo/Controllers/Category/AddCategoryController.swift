@@ -61,13 +61,13 @@ class AddCategoryController: UICollectionViewController, UICollectionViewDelegat
     
     //MARK:- Setup
     private func setupCollectionView() {
-        collectionView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        collectionView.backgroundColor = UIColor.ToDo.darkBackground
         collectionView.register(AddCategoryCell.self, forCellWithReuseIdentifier: cellId)
     }
     
     private func setupNavBar() {
-        navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.07201969673, green: 0.2897559313, blue: 0.3654557808, alpha: 1)
+        navigationController?.navigationBar.tintColor = UIColor.ToDo.lightTextColor
+        navigationController?.navigationBar.barTintColor = UIColor.ToDo.navBarColor
         navigationController?.navigationBar.barStyle = .black
         self.title = "New List"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.save, target: self, action: #selector(handleSaveTapped))

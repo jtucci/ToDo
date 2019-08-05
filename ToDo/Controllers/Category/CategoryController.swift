@@ -74,7 +74,7 @@ class CategoryController: UITableViewController {
     }
     
     private func setupNavBar() {
-        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.07201969673, green: 0.2897559313, blue: 0.3654557808, alpha: 1)
+        navigationController?.navigationBar.barTintColor = UIColor.ToDo.navBarColor
         navigationController?.navigationBar.barStyle = .black
     }
     
@@ -118,11 +118,9 @@ class CategoryController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! CategoryCell
+        let category = categories?[indexPath.row]
         cell.delegate = self
-        if let category = categories?[indexPath.row] {
-            cell.categoryLabel.text = category.name
-            cell.itemCountLabel.text = String(category.toDoItems.count)
-        }
+        cell.category = category
         return cell
     }
     
@@ -148,8 +146,7 @@ class CategoryController: UITableViewController {
     // Footer Configuration
     override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
         if let footer = view as? UITableViewHeaderFooterView{
-            footer.backgroundView?.backgroundColor = .white
-        }
+            footer.backgroundView?.backgroundColor = UIColor.ToDo.lightCellBackgroundColor        }
     }
     
     //MARK: Selection
@@ -189,11 +186,11 @@ extension CategoryController: SwipeTableViewCellDelegate {
         }
         
         // customize the action appearance
-        deleteAction.image = UIImage(named: "trash-icon-white")?.resizedImage(newSize: CGSize(width: 28  , height: 28))
-        deleteAction.backgroundColor = #colorLiteral(red: 0.8881979585, green: 0.3072378635, blue: 0.2069461644, alpha: 1)
+        deleteAction.image = UIImage.ToDo.trash.resizedImage(newSize: CGSize(width: 28  , height: 28))
+        deleteAction.backgroundColor = UIColor.ToDo.deleteSwipeBackgroundColor
         
-        editAction.image = UIImage(named:"settings-icon")?.resizedImage(newSize: CGSize(width: 28 , height: 28))
-        editAction.backgroundColor = #colorLiteral(red: 0.2389388382, green: 0.5892125368, blue: 0.8818323016, alpha: 1)
+        editAction.image = UIImage.ToDo.settings.resizedImage(newSize: CGSize(width: 28 , height: 28))
+        editAction.backgroundColor = UIColor.ToDo.editSwipeBackgroundColor
         
         return [deleteAction, editAction]
     }

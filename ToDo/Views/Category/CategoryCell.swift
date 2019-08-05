@@ -13,8 +13,15 @@ class CategoryCell: SwipeTableViewCell {
     
     //MARK:- Properties
     let iconImageView: UIImageView = UIImageView(cornerRadius: 8)
-    let categoryLabel = UILabel(text: "Category Name", font: .systemFont(ofSize: 15))
-    let itemCountLabel = UILabel(text: "1", font: .systemFont(ofSize: 12, weight: UIFont.Weight.light))
+    let categoryLabel = UILabel(text: "Category Name", font: UIFont.ToDo.cellTitleText)
+    let itemCountLabel = UILabel(text: "0", font: UIFont.ToDo.cellDetailText)
+    
+    var category: Category!{
+        didSet{
+            categoryLabel.text = category.name
+            itemCountLabel.text = String(category.numberOfItems)
+        }
+    }
     
     //MARK:- Initialization
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -40,7 +47,9 @@ class CategoryCell: SwipeTableViewCell {
     }
     
     private func setupProperties() {
-        iconImageView.image = UIImage(named: "list-icon")
+        iconImageView.image = UIImage.ToDo.listIcon
         iconImageView.contentMode = .scaleAspectFit
     }
+    
+
 }

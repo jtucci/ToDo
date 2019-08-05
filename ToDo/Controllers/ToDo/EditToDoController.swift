@@ -14,9 +14,21 @@ class EditToDoController: UICollectionViewController, UICollectionViewDelegateFl
     fileprivate let dateCellId = "datePickerCellId"
     
     //UI
-    let textField = UITextField()
+    let nameTextField = UITextField()
+    var date: UIDatePicker?
+    var dateTextField: UITextField?
     
-    var toDo: ToDoItem?
+    var toDo: ToDoItem! {
+        didSet{
+            nameTextField.text = toDo.name
+            nameTextField.textColor = .white
+            nameTextField.delegate = self
+            nameTextField.constrainWidth(constant: view.frame.size.width - 100)
+            self.navigationItem.titleView = nameTextField
+            nameTextField.becomeFirstResponder()
+        }
+        
+    }
     
     //MARK:- Initialization
     init() {
@@ -30,22 +42,26 @@ class EditToDoController: UICollectionViewController, UICollectionViewDelegateFl
     //MARK:- Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let toDo = toDo {
-            textField.text = toDo.name
-            textField.textColor = .white
+        setupCollectionView()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if nameTextField.text != "" {
+            let newName = nameTextField.text!
+            if dateTextField?.text == "" {
+                date = nil
+            }
+            toDo?.update(name: newName, date: date?.date)
         }
         
-        setupCollectionView()
     }
     
     //MARK:- Setup
     private func setupCollectionView() {
         collectionView.backgroundColor = .white
         collectionView.register(ToDoDatePickerCell.self, forCellWithReuseIdentifier: dateCellId)
-        textField.textAlignment = .left
-        self.navigationItem.titleView = textField
-        
- 
     }
     
     //MARK:- Data Source
@@ -56,6 +72,9 @@ class EditToDoController: UICollectionViewController, UICollectionViewDelegateFl
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: dateCellId, for: indexPath) as! ToDoDatePickerCell
         cell.datePickerTextField.delegate = self
+        cell.datePickerTextField.text = toDo.formattedDueDate
+        date = cell.datePicker
+        dateTextField = cell.datePickerTextField
         return cell
     }
     
@@ -70,5 +89,14 @@ class EditToDoController: UICollectionViewController, UICollectionViewDelegateFl
 
 
 extension EditToDoController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        return true
+    }
     
+
+
 }
+
+

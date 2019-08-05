@@ -18,6 +18,10 @@ class Category: Object {
     @objc dynamic var id = UUID().uuidString
     @objc dynamic var name = ""
     
+    var numberOfItems: Int {
+        return toDoItems.count
+    }
+    
     let toDoItems = List<ToDoItem>()
     
     convenience init(_ name: String) {

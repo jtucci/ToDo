@@ -37,16 +37,16 @@ class AddCategoryCell: UICollectionViewCell {
     }
     
     private func setupProperties() {
-        iconImageView.image = UIImage(named: "list-icon")
+        iconImageView.image = UIImage.ToDo.listIcon
         iconImageView.contentMode = .scaleAspectFit
         
         textField.attributedPlaceholder = NSAttributedString(string: "List Name...",
-                                                             attributes: [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)])
+                                                             attributes: [NSAttributedString.Key.foregroundColor: UIColor.ToDo.darkTextColor])
         textField.textAlignment = .left
         textField.returnKeyType = UIReturnKeyType.done
         textField.clearButtonMode = UITextField.ViewMode.whileEditing
         textField.keyboardType = UIKeyboardType.default
         
-        backgroundColor = .white
+        backgroundColor = UIColor.ToDo.lightBackground
     }
 }

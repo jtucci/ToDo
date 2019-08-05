@@ -19,6 +19,25 @@ class ToDoItem: Object {
     @objc dynamic var name = ""
     @objc dynamic var isCompleted = false
     @objc dynamic var dateCreated = Date()
+    @objc dynamic var dueDate: Date?
+    
+    let dateFormatter: DateFormatter = {
+       var dateFormatter = DateFormatter()
+       dateFormatter.dateStyle = .medium
+       return dateFormatter
+    }()
+    
+    var formattedDueDate: String {
+        get {
+            if let date = dueDate{
+                return "Due \(dateFormatter.string(from: date))"
+            } else {
+                return ""
+            }
+            
+        }
+    }
+    
     var parentCategory = LinkingObjects(fromType: Category.self, property: "toDoItems")
     
     
@@ -44,6 +63,18 @@ extension ToDoItem {
             realm.add(item)
         }
         return item
+    }
+    
+    func update(name: String, date: Date? = nil, in realm: Realm = try! Realm()) {
+        
+        do {
+            try realm.write {
+                self.dueDate = date
+                self.name = name
+            }
+        } catch {
+            print("Error updating category: \(error)")
+        }
     }
     
     
