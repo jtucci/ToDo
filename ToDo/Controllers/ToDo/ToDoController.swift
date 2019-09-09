@@ -139,7 +139,11 @@ class ToDoController: UITableViewController {
   
     //MARK: Selection
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let editToDoVC = EditToDoController()
+//        let editToDoVC = EditToDoController()
+//        editToDoVC.toDo = toDoTasks?[indexPath.row]
+//        navigationController?.pushViewController(editToDoVC, animated: true)
+        
+        let editToDoVC = EditToDoTableController()
         editToDoVC.toDo = toDoTasks?[indexPath.row]
         navigationController?.pushViewController(editToDoVC, animated: true)
     }
