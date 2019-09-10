@@ -194,7 +194,7 @@ extension ToDoController: SwipeTableViewCellDelegate {
         
         let editAction = SwipeAction(style: .default, title: nil) { action, indexPath in
             
-            let editToDoVC = EditToDoController()
+            let editToDoVC = EditToDoTableController()
             editToDoVC.toDo = self.toDoTasks?[indexPath.row]
             self.navigationController?.pushViewController(editToDoVC, animated: true)
             // Dismiss swipe

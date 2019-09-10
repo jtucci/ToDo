@@ -93,6 +93,7 @@ class CategoryController: UITableViewController {
     //MARK:- Actions
     @objc func handleAddButtonTapped() {
         addButton.pulsate()
+        // Open quick add page 
     }
     
     //Add new list
