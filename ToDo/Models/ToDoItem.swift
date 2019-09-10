@@ -77,6 +77,31 @@ extension ToDoItem {
         }
     }
     
+    func update(name: String, in realm: Realm = try! Realm()) {
+        
+        do {
+            try realm.write {
+                self.name = name
+            }
+        } catch {
+            print("Error updating category: \(error)")
+        }
+    }
+    
+    func update(date: Date?, in realm: Realm = try! Realm()) {
+        
+        do {
+            try realm.write {
+                self.dueDate = date
+          
+            }
+        } catch {
+            print("Error updating category: \(error)")
+        }
+    }
+    
+    
+    
     
     func toggleCompleted() {
         guard let realm = realm else { return }

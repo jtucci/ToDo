@@ -25,15 +25,26 @@ class EditToDoTableController: UITableViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        if nameTextField.text != "" {
-            let newName = nameTextField.text!
-            if dateTextField?.text == "" {
-                date = nil
-            }
-            toDo?.update(name: newName, date: date?.date)
+    }
+    
+    @objc func handleDateChanged(){
+        print("Date changed")
+        let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! ToDoDatePickerTableCell
+        if cell.datePickerTextField.text == "" {
+            toDo.update(date: nil)
+        } else {
+             toDo.update(date: cell.datePicker.date)
         }
+       
+    }
+    
+    @objc func handleNameChanged(){
+        print("Name Changed")
+        let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! SettingsCell
         
+        if let name = cell.textField.text {
+            toDo.update(name: name)
+        }
     }
     
     //MARK:- Setup
@@ -58,8 +69,8 @@ class EditToDoTableController: UITableViewController {
             let cell = ToDoDatePickerTableCell(style: .default, reuseIdentifier: nil)
             cell.datePickerTextField.delegate = self
             cell.datePickerTextField.text = toDo.formattedDueDate
-            date = cell.datePicker
-            dateTextField = cell.datePickerTextField
+            // cell.datePickerTextField.isUserInteractionEnabled = false
+            cell.datePickerTextField.addTarget(self, action: #selector(handleDateChanged), for: .editingDidEnd)
             return cell
         }
         let cell = SettingsCell(style: .default, reuseIdentifier: nil)
@@ -68,7 +79,7 @@ class EditToDoTableController: UITableViewController {
         case 0:
             cell.textField.placeholder = "Enter Name"
             cell.textField.text = toDo.name
-            //cell.textField.addTarget(self, action: #selector(handleNameChanged), for: .editingChanged)
+            cell.textField.addTarget(self, action: #selector(handleNameChanged), for: .editingDidEnd)
         default:
             cell.textField.placeholder = "Add Notes.."
            // cell.textField.text = toDo.notes
@@ -109,7 +120,6 @@ class EditToDoTableController: UITableViewController {
 extension EditToDoTableController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        
         return true
     }
     
